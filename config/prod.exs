@@ -3,9 +3,21 @@ import Config
 # Default bind and port for production
 config :livebook, LivebookWeb.Endpoint,
   http: [
-    ip: {127, 0, 0, 1},
-    port: 8080,
-    http_1_options: [max_header_length: 32768]
+    ip: :any, # {127, 0, 0, 1},
+    port: 8080
+  ],
+  https: [
+    ip: :any, 
+    port: 8443, 
+    cipher_suite: :strong,
+    certfile: "/home/chgeuer/beast.geuer-pollmann.de.crt",
+    keyfile: "/home/chgeuer/beast.geuer-pollmann.de.key",
+    thousand_island_options: [
+      transport_options: [
+        sni_fun: &LivebookWeb.Certificates.sni_fun/1
+        # socket_opts: [log_level: :info]
+      ]
+    ]
   ],
   server: true
 

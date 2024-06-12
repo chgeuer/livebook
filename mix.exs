@@ -116,6 +116,8 @@ defmodule Livebook.MixProject do
       {:mint_web_socket, "~> 1.0.0"},
       {:protobuf, "~> 0.12.0"},
       {:dns_cluster, "~> 0.1.2"},
+      {:ssl_verify_fun, "~> 1.1.7", manager: :rebar3, override: true},
+      {:x509, "~> 0.8.7"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:floki, ">= 0.27.0", only: :test},
       {:bypass, "~> 2.1", only: :test},

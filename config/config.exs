@@ -3,7 +3,8 @@ import Config
 # Configures the endpoint
 config :livebook, LivebookWeb.Endpoint,
   adapter: Bandit.PhoenixAdapter,
-  url: [host: "localhost", path: "/"],
+  #url: [host: "localhost", path: "/"],
+  url: [host: "beast.geuer-pollmann.de", path: "/"],
   pubsub_server: Livebook.PubSub,
   live_view: [signing_salt: "livebook"],
   drainer: [shutdown: 1000],

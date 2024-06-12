@@ -68,7 +68,8 @@ defmodule Livebook.MixProject do
       setup: ["deps.get", "cmd --cd assets npm install"],
       "assets.deploy": ["cmd npm run deploy --prefix assets"],
       "format.all": ["format", "cmd --cd assets npm run format"],
-      "protobuf.generate": ["cmd --cd proto mix protobuf.generate"]
+      "protobuf.generate": ["cmd --cd proto mix protobuf.generate"],
+      "phx.server.browser": ["phx.server", "launch_browser"]
     ]
   end
 

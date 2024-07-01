@@ -43,7 +43,7 @@ defmodule LivebookWeb.Output.ImageInputComponent do
     # LV. This is especially important for client-specific inputs in
     # forms.
     token = LivebookWeb.SessionHelpers.generate_input_token(self(), input_id)
-    ~p"/sessions/image-input/#{token}"
+    ~p"/public/sessions/image-input/#{token}"
   end
 
   @impl true
@@ -113,7 +113,7 @@ defmodule LivebookWeb.Output.ImageInputComponent do
         <.live_file_input upload={@uploads.file} />
       </form>
       <div :for={entry <- @uploads.file.entries} class="delay-200 flex flex-col gap-1">
-        <.file_entry name="Audio" entry={entry} on_clear={JS.push("clear_file", target: @myself)} />
+        <.file_entry name="Image" entry={entry} on_clear={JS.push("clear_file", target: @myself)} />
       </div>
     </div>
     """

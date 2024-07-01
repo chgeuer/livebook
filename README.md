@@ -238,11 +238,11 @@ The following environment variables can be used to configure Livebook on boot:
     Livebook inside a cloud platform, such as Cloudflare and Google.
     Supported values are:
 
-      * "basic_auth:<username>:<password>"
-      * "cloudflare:<your-team-name (domain)>"
-      * "google_iap:<your-audience (aud)>"
-      * "tailscale:<tailscale-cli-socket-path>"
-      * "custom:YourElixirModule"
+      * `basic_auth:<username>:<password>`
+      * `cloudflare:<your-team-name (domain)>`
+      * `google_iap:<your-audience (aud)>`
+      * `tailscale:<tailscale-cli-socket-path>`
+      * `custom:YourElixirModule`
 
     See our authentication docs for more information: https://hexdocs.pm/livebook/authentication.html
 
@@ -256,8 +256,10 @@ The following environment variables can be used to configure Livebook on boot:
   * `LIVEBOOK_IP` - sets the ip address to start the web application on.
     Must be a valid IPv4 or IPv6 address.
 
-  * `LIVEBOOK_NODE` - sets the node name for running Livebook in a cluster. Note that
-    this sets RELEASE_NODE if present when creating a release.
+  * `LIVEBOOK_NODE` - sets the node name for running Livebook in a cluster.
+    Note that Livebook always runs using long names distribution, so the
+    node host name must use a fully qualified domain name (FQDN) or an IP
+    address.
 
   * `LIVEBOOK_PASSWORD` - sets a password that must be used to access Livebook.
     Must be at least 12 characters. Defaults to token authentication.
@@ -289,6 +291,10 @@ The following environment variables can be used to configure Livebook on boot:
   * `LIVEBOOK_WITHIN_IFRAME` - controls if the application is running inside an
     iframe. Set it to "true" to enable it. If you do enable it, then the application
     must run with HTTPS.
+
+The environment variables `ERL_AFLAGS` and `ERL_ZFLAGS` can also be set to configure
+Livebook and the notebook runtimes. `ELIXIR_ERL_OPTIONS` are also available to customize
+Livebook, but it is not forwarded to runtimes.
 
 <!-- Environment variables -->
 
